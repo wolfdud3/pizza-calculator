@@ -23,10 +23,19 @@ namespace PizzaCalc
             //calculate ppq (price per qcm)
             double ppq = pizzaPrice / pizzaSize;
             double ppqRounded = Math.Round(ppq, 2);
-            Console.WriteLine("price per qcm is " + ppqRounded);
+            Console.WriteLine("price per qcm is " + ppqRounded + "\n");
+
+            Console.WriteLine("Thank you for using the Pizza Calculator");
+            Console.WriteLine("Press Enter to Exit.");
 
             //exit
-            Console.WriteLine("Press enter to quit");
+            ConsoleKeyInfo cki;
+            cki = Console.ReadKey();
+            do
+            {
+
+            }
+            while (cki.Key != ConsoleKey.Enter);
         }
     }
 }
