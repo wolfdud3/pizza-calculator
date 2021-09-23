@@ -12,5 +12,5 @@ Calculates the price per square centimeter of a set amount of multiple Pizzas.
 ## Version 3
 Calculates the price per square centimeter of a variable amount multiple Pizzas.
 
-### Technical Requirements
+# Technical Requirements
 Well...it needs to run .NET 5.0
