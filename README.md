@@ -9,5 +9,5 @@ Calculates the price per square centimeter of only one Pizza.
 ## Version 2
 Calculates the price per square centimeter of multiple Pizzas.
 
-### Technical Requirements
+## Technical Requirements
 Well...it needs to run .NET 5.0
