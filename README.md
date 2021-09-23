@@ -6,7 +6,7 @@ Simply run it and enter all the things that are asked for.
 ## Version 1 - v1
 Calculates the price per square centimeter of only one Pizza.
 
-## Version 2
+## Version 2 - v2
 Calculates the price per square centimeter of a set amount of multiple Pizzas.
 
 ## Version 3 - coming soon
