@@ -1,21 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace PizzaCalc2
+namespace PizzaCalc3
 {
+    class Pizza
+    {
+        public string name { get; set; }
+        public double ppq { get; set; }
+    }
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Pizza Calculator by Wolfdud3");
-            Console.WriteLine("-----");
+            Console.WriteLine("Welcome to the");
+            Console.WriteLine("█▀▄ █ ▀█▀ ▀█▀ ▄▀▄   ▄▀▀ ▄▀▄ █   ▄▀▀ █ █ █   ▄▀▄ ▀█▀ ▄▀▄ █▀▄");
+            Console.WriteLine("█▀  █ █▄▄ █▄▄ █▀█   ▀▄▄ █▀█ █▄▄ ▀▄▄ ▀▄█ █▄▄ █▀█  █  ▀▄▀ █▀▄ Less thinking, more Pizza");
+            Console.WriteLine("by Wolfdud3");
+            Console.WriteLine("----------");
+            Console.WriteLine("Use this calculator to calculate the price of pizza per square centimeter.");
+            Console.WriteLine("Simply put in what is asked for and see where you can save money.");
 
-            Console.Write("How many Pizzas would you like to calculate? ");
-            int amountPizza = Convert.ToInt32(Console.ReadLine());
+            List<Pizza> listOfPizza = new List<Pizza>();
 
-            string[] pizzaNameArray = new string[amountPizza];
-            double[] pizzaArray = new double[amountPizza];
-            
-            for(int i = 0; i < amountPizza; i++)
+            ConsoleKeyInfo cki;
+            ConsoleKeyInfo cki2;
+            do
             {
                 //name
                 Console.Write("\nGive this Pizza a name: ");
@@ -35,31 +45,31 @@ namespace PizzaCalc2
                 //calc
                 double ppq = pizzaPrice / pizzaSize;
                 double ppqRounded = Math.Round(ppq, 2);
-                Console.WriteLine("price per qcm is " + ppqRounded);
 
-                //write
-                pizzaNameArray.SetValue(pizzaName, i);
-                pizzaArray.SetValue(ppqRounded, i);
+                listOfPizza.Add(new Pizza() { name = pizzaName, ppq = ppqRounded });
+
+                Console.WriteLine("----------");
+                Console.WriteLine("Press esc to show result.");
+                Console.WriteLine("Press any button to continue");
+                cki = Console.ReadKey();
             }
+            while (cki.Key != ConsoleKey.Escape);
 
-            //give out everything
-            int arrayLength = pizzaArray.Length;
-            for(int j = 0; j < arrayLength; j++)
+            Console.WriteLine("\naThe results are:");   //I know, I know...not a nice solution, but it works. lol.
+            for (int i = 0; i < listOfPizza.Count; i++)
             {
-                Console.Write(pizzaNameArray[j] + " - ");
-                Console.WriteLine(pizzaArray[j]);
+                Console.WriteLine(listOfPizza[i].name + " - " + listOfPizza[i].ppq);
             }
-            Console.WriteLine("\nThank you for using the Pizza Calculator.");
-            Console.WriteLine("Press Enter to exit.");
 
-            //exit key
-            ConsoleKeyInfo cki;
-            cki = Console.ReadKey();
+            Console.WriteLine("\nThank you for using the Pizza Calculator");
+            Console.WriteLine("Press ENTER to exit.");
+            //exit code
+            cki2 = Console.ReadKey();
             do
             {
 
             }
-            while (cki.Key != ConsoleKey.Enter);
+            while (cki2.Key != ConsoleKey.Enter);
         }
     }
 }
