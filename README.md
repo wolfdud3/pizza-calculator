@@ -7,7 +7,10 @@ Simply run it and enter all the things that are asked for.
 Calculates the price per square centimeter of only one Pizza.
 
 ## Version 2
-Calculates the price per square centimeter of multiple Pizzas.
+Calculates the price per square centimeter of a set amount of multiple Pizzas.
+
+## Version 3 - coming soon
+Calculates the price per square centimeter of a variable amount multiple Pizzas.
 
 ## Technical Requirements
 Well...it needs to run .NET 5.0
