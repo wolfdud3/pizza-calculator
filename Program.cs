@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PizzaCalc
+namespace PizzaCalc2
 {
     class Program
     {
@@ -9,26 +9,50 @@ namespace PizzaCalc
             Console.WriteLine("Welcome to the Pizza Calculator by Wolfdud3");
             Console.WriteLine("-----");
 
-            //calculate pizza size
-            Console.Write("Please enter the diameter of the Pizza in cm: ");
-            string diameterString = Console.ReadLine();
-            double radius = Convert.ToDouble(diameterString)/2;
-            double pizzaSize = Math.PI * radius * radius;
+            Console.Write("How many Pizzas would you like to calculate? ");
+            int amountPizza = Convert.ToInt32(Console.ReadLine());
 
-            //get price
-            Console.Write("Please enter the price of the Pizza: ");
-            string pizzaPriceString = Console.ReadLine();
-            double pizzaPrice = Convert.ToDouble(pizzaPriceString);
+            string[] pizzaNameArray = new string[amountPizza];
+            double[] pizzaArray = new double[amountPizza];
+            
+            for(int i = 0; i < amountPizza; i++)
+            {
+                //name
+                Console.Write("\nGive this Pizza a name: ");
+                string pizzaName = Console.ReadLine();
 
-            //calculate ppq (price per qcm)
-            double ppq = pizzaPrice / pizzaSize;
-            double ppqRounded = Math.Round(ppq, 2);
-            Console.WriteLine("price per qcm is " + ppqRounded + "\n");
+                //size
+                Console.Write("Please enter the diameter of the Pizza in cm: ");
+                string diameterString = Console.ReadLine();
+                double radius = Convert.ToDouble(diameterString) / 2;
+                double pizzaSize = Math.PI * radius * radius;
 
-            Console.WriteLine("Thank you for using the Pizza Calculator");
-            Console.WriteLine("Press Enter to Exit.");
+                //price
+                Console.Write("Please enter the price of the Pizza: ");
+                string pizzaPriceString = Console.ReadLine();
+                double pizzaPrice = Convert.ToDouble(pizzaPriceString);
 
-            //exit
+                //calc
+                double ppq = pizzaPrice / pizzaSize;
+                double ppqRounded = Math.Round(ppq, 2);
+                Console.WriteLine("price per qcm is " + ppqRounded);
+
+                //write
+                pizzaNameArray.SetValue(pizzaName, i);
+                pizzaArray.SetValue(ppqRounded, i);
+            }
+
+            //give out everything
+            int arrayLength = pizzaArray.Length;
+            for(int j = 0; j < arrayLength; j++)
+            {
+                Console.Write(pizzaNameArray[j] + " - ");
+                Console.WriteLine(pizzaArray[j]);
+            }
+            Console.WriteLine("\nThank you for using the Pizza Calculator.");
+            Console.WriteLine("Press Enter to exit.");
+
+            //exit key
             ConsoleKeyInfo cki;
             cki = Console.ReadKey();
             do
